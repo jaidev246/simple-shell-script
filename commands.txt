@@ -1,0 +1,53 @@
+xarg:
+	xargs functionality can be achived using the backquote feature of shell. But, it offers more options. It can deal with blanks or special characters in file names easily. It is often used with find, grep and other commands
+	build and execute command lines from standard input
+----------------------------------------------------------------------
+tee:
+	read from standard input and write to standard output and files
+	tee is normally used to split the output of a program so that it can be both displayed and saved in a file. The command can be used to capture intermediate output before the data is altered by another command or program. The tee command reads standard input, then writes its content to standard output.
+	tee [ -a ] [ -i ] [ File ... ]
+		File- One or more files that will recieve the "tee-d" output
+		-a - Append the output to the end of File instead of writing over it.
+		-i - Ignore interrupts
+-----------------------------------------------------------------------
+find:
+	find . -name "*.txt" -print
+	find . -name "*.txt" -print | less
+
+	find . -name "*.c" -type f -print|xargs rm -f // remove files with extension .c.
+-----------------------------------------------------------------------
+
+sed - stream editor for filtering and transforming text
+	sed 's/unix/linux/' file.txt //replace unix with linux
+
+-----------------------------------------------------------------------
+awk-  pattern scanning and text processing language
+	ls -l | awk '{print $2}'
+-----------------------------------------------------------------------
+cut-    remove sections from each line of files
+	cut -c4 file.txt // shows the 4th letter in each lines
+	cut -c4,6 file.txt // 4 and 6 th
+	cut -c4-6 file.txt //4 to 7 th
+	cut -c-6 file.txt  //first 6 
+-----------------------------------------------------------------------
+uniq - report or omit repeated lines
+	uniq file.txt 
+
+	uniq commands:
+	c : Count of occurrence of each line.
+	d : Prints only duplicate lines.
+	D : Print all duplicate lines
+	f : Avoid comparing first N fields.
+	i : Ignore case when comparing.
+	s : Avoid comparing first N characters.
+	u : Prints only unique lines.
+	w : Compare no more than N characters in lines
+-----------------------------------------------------------------------
+head - output the first part of files
+	head example.txt // by dafault print 1st 10 lines
+	head -n2 example.txt// 1st 2 lines
+-----------------------------------------------------------------------
+tail - output the last part of files
+	tail example.txt// by default print the last 10 lines
+	tail -n2 example.txt // print last 2 lines
+
